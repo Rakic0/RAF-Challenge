@@ -10,7 +10,7 @@ const Nav = () => {
   const { open, toggleNav } = useContext(NavContext);
 
   return (
-    <nav className="flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 mt-2 w-[90%] z-50 ">
+    <nav className="mt-2 sm:mt-6 lg:mt-12 flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 w-[90%] z-50 ">
       <img src={Logo} alt="Recycle logo" className="w-12" />
 
       <div

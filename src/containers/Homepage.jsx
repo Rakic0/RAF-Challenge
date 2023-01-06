@@ -3,13 +3,13 @@ import classnames from "classnames";
 
 // Componentrs
 import { FadeText } from "../components/Typo";
+import Dots from "../components/Dots";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
-import Dots from "../components/Dots";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
