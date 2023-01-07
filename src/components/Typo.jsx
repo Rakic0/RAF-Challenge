@@ -5,7 +5,7 @@ export const FadeText = ({ children, className }) => {
 
   return (
     <h3
-      className={`text-2xl font-bold ${className}`}
+      className={`text-xl font-bold ${className}`}
       style={{
         opacity: scrollTop / 1200,
       }}

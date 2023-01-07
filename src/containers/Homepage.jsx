@@ -4,12 +4,20 @@ import classnames from "classnames";
 // Componentrs
 import { FadeText } from "../components/Typo";
 import Dots from "../components/Dots";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
+import { SlFire } from "react-icons/sl";
+import { FaToilet } from "react-icons/fa";
+import { GiGrassMushroom } from "react-icons/gi";
+import { TfiTrash } from "react-icons/tfi";
+import { CiBag1 } from "react-icons/ci";
+import RecycleBin from "../assets/recycle-bin.png";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -20,6 +28,7 @@ const Homepage = () => {
       return map;
     }, {})
   );
+  const [modalData, setModalData] = useState({ open: false, id: 1 });
 
   useLayoutEffect(() => {
     const handleScroll = () => {
@@ -28,7 +37,6 @@ const Homepage = () => {
 
       const newVisibleImagesMap = images.reduce((map, image) => {
         map[image] = scrollTop >= image * (viewportHeight / 4);
-        console.log(map);
         return map;
       }, {});
 
@@ -43,7 +51,8 @@ const Homepage = () => {
 
   return (
     <div className="bg-[#fdd85f] overflow-hidden p-2">
-      <header className="gradient-bg p-1 pt-16 min-h-[95vh] relative">
+      <header className="p-1 pt-16 min-h-[95vh] relative z-10">
+        <div className="glow" />
         <div className="text-center mt-4">
           <ul>
             <li>
@@ -60,7 +69,7 @@ const Homepage = () => {
         </div>
 
         <div className="ui-fragments">
-          <div className="absolute w-[80%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <svg
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +90,7 @@ const Homepage = () => {
             </svg>
           </div>
 
-          <div className="absolute w-[120%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute w-[76.3vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <svg
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -121,26 +130,26 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="w-1/2 absolute right-4 bottom-4">
+        <div className="w-1/2 md:w-1/3 xl:w-1/4 absolute right-4 bottom-4">
           <div className="flex items-center">
             <RxDotFilled className="text-2xl" />
             <hr className="bg-black text-black h-0.5 border-0 w-full -ml-2" />
           </div>
-          <h3 className="text-sm font-bold ml-2">
+          <h3 className="text-sm sm:text-lg md:text-2xl font-bold ml-2">
             Ekosistemima nisu potrebni ljudi. Ljudima su potrebni ekosistemi
           </h3>
         </div>
       </header>
 
-      <main>
+      <main class="lg:mt-24">
         {/* Intro */}
         <section className="relative">
           <div className="ui-fragments">
             <Dots className="bottom-24" />
           </div>
 
-          <div className=" h-screen flex items-center justify-center">
-            <FadeText className="px-2 text-center relative z-10">
+          <div className="h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
+            <FadeText className="px-2 text-center relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
               Recikliranje je jednostavan i efikasan način da se smanji otpad,
               štede resursi i zaštiti okolina. Krenite sa recikliranjem danas i
               pomozite nam da stvorimo bolju budućnost za sebe i buduće
@@ -149,7 +158,114 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-screen"></section>
+        <section className="h-screen bg-gradient relative">
+          <div className="ui-fragments">
+            <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <svg
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                class="animate-spin-slow"
+                aria-hidden="true"
+              >
+                <circle
+                  opacity=".2"
+                  cx="128"
+                  cy="128"
+                  r="127"
+                  stroke="#000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-dasharray="0.1 10"
+                ></circle>
+              </svg>
+            </div>
+
+            <div className="absolute w-[76.3vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <svg
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 372 374"
+                class="animate-spin-backwards-slow"
+                aria-hidden="true"
+              >
+                <circle
+                  opacity=".1"
+                  cx="185"
+                  cy="187"
+                  r="185"
+                  stroke="#000"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-dasharray="0.1 20"
+                ></circle>
+              </svg>
+            </div>
+          </div>
+
+          <Modal data={modalData} setModalData={setModalData} />
+
+          <div className="px-3 relative center z-20 w-full">
+            <div className="flex flex-col w-fit gap-12 absolute center !left-12">
+              <Button
+                className="translate-x-8"
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 6 }))
+                }
+              >
+                <img src={RecycleBin} className="w-9" />
+                {/* 6 */}
+              </Button>
+              <Button
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 4 }))
+                }
+              >
+                <TfiTrash className="text-4xl" />
+                {/* 4 */}
+              </Button>
+              <Button
+                className="translate-x-8"
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 5 }))
+                }
+              >
+                <CiBag1 className="text-4xl" />
+                {/* 5 */}
+              </Button>
+            </div>
+
+            <div className="w-fit gap-12 absolute top-1/2 -translate-x-1/2 -translate-y-1/2 right-0">
+              <Button
+                className="-translate-x-8 mb-12"
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 1 }))
+                }
+              >
+                <SlFire className="text-4xl" />
+                {/* 1 */}
+              </Button>
+              <Button
+                className="mb-12"
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 2 }))
+                }
+              >
+                <GiGrassMushroom className="text-4xl" />
+                {/* 2 */}
+              </Button>
+              <Button
+                className="-translate-x-8"
+                onClick={() =>
+                  setModalData((prev) => ({ ...prev, open: true, id: 3 }))
+                }
+              >
+                <FaToilet className="text-4xl" />
+                {/* 3 */}
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -73,13 +73,6 @@ html {
   bottom: 0;
 }
 
-.gradient-bg {
-  background: #fee9a7;
-  background: -webkit-radial-gradient(center, #fee9a7, #fcd34d);
-  background: -moz-radial-gradient(center, #fee9a7, #fcd34d);
-  background: radial-gradient(ellipse at center, #fee9a7, #fcd34d);
-}
-
 .line {
   @apply w-4 relative bg-black h-0.5 rounded-full transition-all flex items-center justify-center;
 }
@@ -170,22 +163,28 @@ html {
 }
 
 .image_7 {
+  z-index: 10;
   background-image: url("./assets/paper/paper_8.png");
 }
 
 .image_8 {
+  z-index: 10;
+
   background-image: url("./assets/paper/paper_9.png");
 }
 
 .image_9 {
+  z-index: 10;
   background-image: url("./assets/paper/paper_10.png");
 }
 
 .image_10 {
+  z-index: 10;
   background-image: url("./assets/paper/paper_11.png");
 }
 
 .image_11 {
+  z-index: 10;
   background-image: url("./assets/paper/paper_12.png");
 }
 
@@ -215,6 +214,38 @@ html {
 
 .dot + .dot {
   margin-top: 30px;
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*  */
+
+.glow {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #fff 0,
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  width: 50vw;
+  height: 30vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.bg-gradient {
+  background: linear-gradient(0deg, #a5c33a, #fdd85f);
+}
+
+.test:hover span {
+  width: auto;
+  transition: all 0.3s;
 }
 
 /* Animations */

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Paljenje otpada",
+    "desc": "Spaljivanje otpada pušta štetne gasove i zagađuje vazduh koji može da šteti ljudskom zdravlju i okolini."
+  },
+  {
+    "id": 2,
+    "title": "Bacanje van kante",
+    "desc": "Zagađivanjem štetimo biljkama i divljim životinjama. Takođem samim tim kvarimo prirodnu lepotu."
+  },
+  {
+    "id": 3,
+    "title": "Bacanje u Toalet ",
+    "desc": "Ne-biorazgradivi otpaci mogu da zapuše i oštete kanalizacioni sistem."
+  },
+  {
+    "id": 4,
+    "title": "Bacanje u običnu kantu ",
+    "desc": "Stavljanje materijala koji se može reciklirati u običnu kantu za smeće može kontaminirati smeće i otežati recikliranje."
+  },
+  {
+    "id": 5,
+    "title": "Plastične kese",
+    "desc": "Plastične kese se mogu zaglaviti u mašinama za sortiranje i izazvati probleme u procesu reciklaže."
+  },
+  {
+    "id": 6,
+    "title": "Reciklaža",
+    "desc": "Reciklaža čuva prirodne resurse i smanjuje upotrebu energije i zagađenje."
+  }
+]
