@@ -2,31 +2,31 @@
   {
     "id": 1,
     "title": "Paljenje otpada",
-    "desc": "Spaljivanje otpada pušta štetne gasove i zagađuje vazduh koji može da šteti ljudskom zdravlju i okolini."
+    "desc": "Spaljivanje otpada pušta štetne gasove i zagađuje vazduh koji može da šteti ljudskom zdravlju i okolini. Reciklaža ili pravilno odlaganje otpada određenim metodama je sigurniji i efikasniji način očuvanja resursa i zaštite životne sredine."
   },
   {
     "id": 2,
     "title": "Bacanje van kante",
-    "desc": "Zagađivanjem štetimo biljkama i divljim životinjama. Takođem samim tim kvarimo prirodnu lepotu."
+    "desc": "Odlaganje materijala za reciklažu na deponiju ili na tlu može zagaditi zemljište i vodu i naneti štetu biljkama i divljim životinjama. Važno je koristiti određene kante za reciklažu ili objekte za pravilno odlaganje recikliranog materijala."
   },
   {
     "id": 3,
     "title": "Bacanje u Toalet ",
-    "desc": "Ne-biorazgradivi otpaci mogu da zapuše i oštete kanalizacioni sistem."
+    "desc": "Bacanje ne-biorazgradivih materijala, kao što su plastika ili metal, može začepiti cevi i izazvati prelivanje kanalizacije, što može biti opasno po zdravlje i takođe može prouzrokovati oštećenje kanalizacionog sistema i životne sredine."
   },
   {
     "id": 4,
     "title": "Bacanje u običnu kantu ",
-    "desc": "Stavljanje materijala koji se može reciklirati u običnu kantu za smeće može kontaminirati smeće i otežati recikliranje."
+    "desc": "Stavljanje materijala koji se može reciklirati u običnu kantu za smeće može kontaminirati smeće i otežati recikliranje. Važno je koristiti određenu kantu za reciklažu kako bi se osiguralo da se reciklažni materijali pravilno prikupljaju i obrađuju."
   },
   {
     "id": 5,
     "title": "Plastične kese",
-    "desc": "Plastične kese se mogu zaglaviti u mašinama za sortiranje i izazvati probleme u procesu reciklaže."
+    "desc": "Plastične kese se mogu zaglaviti u mašinama za sortiranje i izazvati probleme u procesu reciklaže. Uopšteno se preporučuje da se materijal koji se može reciklirati staviti u kantu za reciklažu, a ne u kesu."
   },
   {
     "id": 6,
     "title": "Reciklaža",
-    "desc": "Reciklaža čuva prirodne resurse i smanjuje upotrebu energije i zagađenje."
+    "desc": "Reciklaža čuva prirodne resurse i smanjuje upotrebu energije i zagađenje. Stavljanje materijala koji se može reciklirati u predviđenu kantu za reciklažu pomaže u zaštiti životne sredine i doprinosi održivosti našeg društva."
   }
 ]

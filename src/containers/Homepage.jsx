@@ -9,6 +9,7 @@ import Modal from "../components/Modal";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
+import OtvorKanta from "../assets/kanta.webp";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
@@ -74,7 +75,7 @@ const Homepage = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"
-              class="animate-spin-slow"
+              className="animate-spin-slow"
               aria-hidden="true"
             >
               <circle
@@ -83,9 +84,9 @@ const Homepage = () => {
                 cy="128"
                 r="127"
                 stroke="#000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-dasharray="0.1 10"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray="0.1 10"
               ></circle>
             </svg>
           </div>
@@ -95,7 +96,7 @@ const Homepage = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 372 374"
-              class="animate-spin-backwards-slow"
+              className="animate-spin-backwards-slow"
               aria-hidden="true"
             >
               <circle
@@ -104,9 +105,9 @@ const Homepage = () => {
                 cy="187"
                 r="185"
                 stroke="#000"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-dasharray="0.1 20"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeDasharray="0.1 20"
               ></circle>
             </svg>
           </div>
@@ -141,7 +142,7 @@ const Homepage = () => {
         </div>
       </header>
 
-      <main class="lg:mt-24">
+      <main className="lg:mt-24">
         {/* Intro */}
         <section className="relative">
           <div className="ui-fragments">
@@ -158,14 +159,14 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-screen bg-gradient relative">
+        <section className="h-[90vh] bg-gradient relative">
           <div className="ui-fragments">
             <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 256 256"
-                class="animate-spin-slow"
+                className="animate-spin-slow"
                 aria-hidden="true"
               >
                 <circle
@@ -174,9 +175,9 @@ const Homepage = () => {
                   cy="128"
                   r="127"
                   stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-dasharray="0.1 10"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeDasharray="0.1 10"
                 ></circle>
               </svg>
             </div>
@@ -186,7 +187,7 @@ const Homepage = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 372 374"
-                class="animate-spin-backwards-slow"
+                className="animate-spin-backwards-slow"
                 aria-hidden="true"
               >
                 <circle
@@ -195,74 +196,97 @@ const Homepage = () => {
                   cy="187"
                   r="185"
                   stroke="#000"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-dasharray="0.1 20"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeDasharray="0.1 20"
                 ></circle>
               </svg>
             </div>
+
+            <Dots />
           </div>
 
           <Modal data={modalData} setModalData={setModalData} />
 
           <div className="px-3 relative center z-20 w-full">
-            <div className="flex flex-col w-fit gap-12 absolute center !left-12">
+            <div className="w-fit absolute center !left-12 sm:!left-[17.5%] mt-0.5">
               <Button
-                className="translate-x-8"
+                className="translate-x-8 lg:translate-x-12 mb-12 lg:mb-24"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 6 }))
                 }
               >
-                <img src={RecycleBin} className="w-9" />
+                <img src={RecycleBin} className="w-9 sm:w-16" />
                 {/* 6 */}
               </Button>
               <Button
+                className="mb-12 lg:mb-24"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 4 }))
                 }
               >
-                <TfiTrash className="text-4xl" />
+                <TfiTrash className="text-4xl sm:text-6xl" />
                 {/* 4 */}
               </Button>
               <Button
-                className="translate-x-8"
+                className="translate-x-8 lg:translate-x-12"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 5 }))
                 }
               >
-                <CiBag1 className="text-4xl" />
+                <CiBag1 className="text-4xl sm:text-6xl" />
                 {/* 5 */}
               </Button>
             </div>
 
-            <div className="w-fit gap-12 absolute top-1/2 -translate-x-1/2 -translate-y-1/2 right-0">
+            <div className="w-fit absolute top-1/2 -translate-x-1/2 -translate-y-1/2 right-0 sm:right-[8%] lg:right-[10%]">
               <Button
-                className="-translate-x-8 mb-12"
+                className="-translate-x-8 lg:-translate-x-12 mb-12 lg:mb-24"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 1 }))
                 }
               >
-                <SlFire className="text-4xl" />
+                <SlFire className="text-4xl sm:text-6xl" />
                 {/* 1 */}
               </Button>
               <Button
-                className="mb-12"
+                className="mb-12 lg:mb-24"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 2 }))
                 }
               >
-                <GiGrassMushroom className="text-4xl" />
+                <GiGrassMushroom className="text-4xl sm:text-6xl" />
                 {/* 2 */}
               </Button>
               <Button
-                className="-translate-x-8"
+                className="-translate-x-8 lg:-translate-x-12"
                 onClick={() =>
                   setModalData((prev) => ({ ...prev, open: true, id: 3 }))
                 }
               >
-                <FaToilet className="text-4xl" />
+                <FaToilet className="text-4xl sm:text-6xl" />
                 {/* 3 */}
               </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="h-screen bg-secondary grid items-center">
+          <div className="relative">
+            <img src={OtvorKanta} className="relative z-0" />
+            <div className="absolute top-5 w-[93%] z-10 left-1/2 -translate-x-1/2">
+              <svg
+                class="svg-bg"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1311 1492"
+              >
+                <path
+                  opacity=".3"
+                  d="M664.28 1443.8H461.92s-14.75-2.63-14.75 12.61c0 15.23-1.4 32.75-15.71 32.75-14.3 0-207.67 18-239.05-57.21 0 0-50.3-236.97-68.75-654.55l-21.3-453.28H93.5s-1.5-.46-1.5 4.54c0 2.84-.66 1.52-2.5 3.84-1.1 1.4.5 4.16-3.5 7.5-1.9 1.6-6.99 1.66-10.53 1.66-7.97 0-11.97 1-12.97-13C59.5 305.5 44.84 189.59 43 180c0 0-36.34-2.3-40.03-3.84C-.73 174.62 1 121.2 1 121.2s-.48-3.83 2.15-3.83 0-49.69 0-51.7c0 0 102.72-28.65 151.35-36.67.62-9.22 228.52 8.49 233.5 5.5 4.97-2.99 261 0 261 0s156.5 6 363.5 0c88.5 0 142.55-41.43 143.22-32.21 48.63 8.02 153.07 63.38 153.07 63.38 0 2.01-2.6 51.7 0 51.7 2.59 0 2.15 3.83 2.15 3.83s-.31 58.46-4 60c-3.69 1.54-34.94 2.3-34.94 2.3-1.84 9.59-16.82 130.56-18.53 144.66-1.71 14.1-7.2 14.1-15.17 14.1-9.83 0-12.83-4.33-12.83-11.6s-1.25-6.54-1.25-6.54c-6.75-.96-16.25-.96-16.25-.96l-19.63 454c-18.45 417.48-68.75 654.54-68.75 654.54-31.39 75.21-224.78 57.21-239.08 57.21-14.31 0-15.68-17.52-15.68-32.76 0-15.23-14.76-12.6-14.76-12.6l-185.79.25Z"
+                  fill="black"
+                ></path>
+              </svg>
             </div>
           </div>
         </section>

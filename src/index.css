@@ -280,3 +280,9 @@ html {
     transform: translateY(36px);
   }
 }
+
+.cls-1 {
+  fill: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 8px;
+}

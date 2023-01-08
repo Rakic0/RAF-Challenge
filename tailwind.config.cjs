@@ -6,6 +6,10 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        primary: "#fdd85f",
+        secondary: "#a5c33a",
+      },
       keyframes: {
         "spin-backwards": {
           "0%": { transform: "rotate(0deg)" },
