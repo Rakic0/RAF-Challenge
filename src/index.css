@@ -129,6 +129,11 @@ html {
   width: 100%;
 }
 
+.stickyCan {
+  position: absolute;
+  transform: translate(-50%, 0);
+}
+
 .image {
   @apply absolute w-full h-full opacity-0 bg-no-repeat bg-contain;
   background-position: center center;

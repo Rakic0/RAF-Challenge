@@ -22,7 +22,7 @@ const Modal = ({ data: { id, open }, className, setModalData }) => {
       <div className="absolute w-[90%] sm:w-[70%] lg:w-[55%] xl:w-[42rem] top-[50vh] left-1/2 transform -translate-y-1/2 -translate-x-1/2">
         <svg
           id="Layer_1"
-          data-name="Layer 1"
+          dataName="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 343.41 343.41"
           stroke={color}

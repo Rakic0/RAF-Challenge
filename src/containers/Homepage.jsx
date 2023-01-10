@@ -9,7 +9,7 @@ import Modal from "../components/Modal";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
-import OtvorKanta from "../assets/kanta.webp";
+import OtvorKanta from "../assets/kanta.png";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
@@ -32,9 +32,23 @@ const Homepage = () => {
   const [modalData, setModalData] = useState({ open: false, id: 1 });
 
   useLayoutEffect(() => {
+    const deafultCanCord = document
+      .querySelector(".canCord")
+      .getBoundingClientRect().bottom;
+
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
       const viewportHeight = window.innerHeight;
+
+      const canCord = document
+        .querySelector(".canCord")
+        .getBoundingClientRect().bottom;
+
+      console.log(deafultCanCord);
+      if (canCord <= 350) {
+        document.querySelector(".sticky").classList.add("stickyCan");
+        document.querySelector(".sticky").style.top = `${deafultCanCord}px`;
+      }
 
       const newVisibleImagesMap = images.reduce((map, image) => {
         map[image] = scrollTop >= image * (viewportHeight / 4);
@@ -51,7 +65,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="bg-[#fdd85f] overflow-hidden p-2">
+    <div className="bg-[#fdd85f] overflow-hidden p-2 h-[10000vh]">
       <header className="p-1 pt-16 min-h-[95vh] relative z-10">
         <div className="glow" />
         <div className="text-center mt-4">
@@ -149,7 +163,7 @@ const Homepage = () => {
             <Dots className="bottom-24" />
           </div>
 
-          <div className="h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
+          <div className="min-h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
             <FadeText className="px-2 text-center relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
               Recikliranje je jednostavan i efikasan način da se smanji otpad,
               štede resursi i zaštiti okolina. Krenite sa recikliranjem danas i
@@ -159,7 +173,7 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-[90vh] bg-gradient relative">
+        <section className="h-screen bg-gradient relative">
           <div className="ui-fragments">
             <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
@@ -271,8 +285,8 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-screen bg-secondary grid items-center">
-          <div className="relative">
+        <section className="min-h-screen bg-secondary grid items-center">
+          <div className="relative canCord">
             <img src={OtvorKanta} className="relative z-0" />
             <div className="absolute top-5 w-[93%] z-10 left-1/2 -translate-x-1/2">
               <svg
