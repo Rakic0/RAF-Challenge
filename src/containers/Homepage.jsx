@@ -1,8 +1,19 @@
-import { useLayoutEffect, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import classnames from "classnames";
 
 // Componentrs
-import { FadeText } from "../components/Typo";
+import {
+  AnimatedHeading,
+  FadeText,
+  Heading,
+  Paragraph,
+} from "../components/Typo";
 import Dots from "../components/Dots";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -18,7 +29,9 @@ import { FaToilet } from "react-icons/fa";
 import { GiGrassMushroom } from "react-icons/gi";
 import { TfiTrash } from "react-icons/tfi";
 import { CiBag1 } from "react-icons/ci";
+import { BsArrowUpRightCircle, BsArrowDownRightCircle } from "react-icons/bs";
 import RecycleBin from "../assets/recycle-bin.png";
+import { useInView } from "react-intersection-observer";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -30,24 +43,27 @@ const Homepage = () => {
     }, {})
   );
   const [modalData, setModalData] = useState({ open: false, id: 1 });
+  const [defaultCanCord, setDefaultCanCord] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   useLayoutEffect(() => {
-    const deafultCanCord = document
-      .querySelector(".canCord")
-      .getBoundingClientRect().bottom;
-
     const handleScroll = () => {
+      setOffset(window.pageYOffset);
+      const a = document
+        .querySelector(".canCord")
+        .getBoundingClientRect().bottom;
+      setDefaultCanCord(a);
       const scrollTop = document.documentElement.scrollTop;
       const viewportHeight = window.innerHeight;
 
       const canCord = document
         .querySelector(".canCord")
-        .getBoundingClientRect().bottom;
+        .getBoundingClientRect().top;
 
-      console.log(deafultCanCord);
       if (canCord <= 350) {
         document.querySelector(".sticky").classList.add("stickyCan");
-        document.querySelector(".sticky").style.top = `${deafultCanCord}px`;
+      } else if (canCord > 400) {
+        document.querySelector(".sticky").classList.remove("stickyCan");
       }
 
       const newVisibleImagesMap = images.reduce((map, image) => {
@@ -64,8 +80,20 @@ const Homepage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const ref = useRef();
+  const { ref: inViewRef, inView } = useInView();
+
+  const setRefs = useCallback(
+    (node) => {
+      ref.current = node;
+      console.log(ref.current);
+      inViewRef(node);
+    },
+    [inViewRef]
+  );
+
   return (
-    <div className="bg-[#fdd85f] overflow-hidden p-2 h-[10000vh]">
+    <div className="bg-[#fdd85f] overflow-hidden p-2">
       <header className="p-1 pt-16 min-h-[95vh] relative z-10">
         <div className="glow" />
         <div className="text-center mt-4">
@@ -129,7 +157,7 @@ const Homepage = () => {
           <Dots className="-bottom-44" />
         </div>
 
-        <div className="sticky ml-4">
+        <div className="sticky ml-4 isolate">
           <div className="frame">
             {images.map((image) => {
               return (
@@ -222,7 +250,9 @@ const Homepage = () => {
 
           <Modal data={modalData} setModalData={setModalData} />
 
-          <div className="px-3 relative center z-20 w-full">
+          <AnimatedHeading h1="Kako" h2="recikliramo" />
+
+          <div className="px-3 -mt-24 relative center z-20 w-full">
             <div className="w-fit absolute center !left-12 sm:!left-[17.5%] mt-0.5">
               <Button
                 className="translate-x-8 lg:translate-x-12 mb-12 lg:mb-24"
@@ -286,7 +316,8 @@ const Homepage = () => {
         </section>
 
         <section className="min-h-screen bg-secondary grid items-center">
-          <div className="relative canCord">
+          <AnimatedHeading h1="Zašto" h2="Reciklirati" />
+          <div className="relative canCord mt-20 isolate">
             <img src={OtvorKanta} className="relative z-0" />
             <div className="absolute top-5 w-[93%] z-10 left-1/2 -translate-x-1/2">
               <svg
@@ -303,7 +334,50 @@ const Homepage = () => {
               </svg>
             </div>
           </div>
+          <div
+            className="mt-[30rem] w-[90%] sm:w-[70%] mx-auto"
+            style={{
+              transform: `translateY(${offset * -0.2}px)`,
+            }}
+          >
+            <div>
+              <Heading>
+                <div className="flex gap-2 items-center">
+                  <BsArrowUpRightCircle /> 17 %
+                </div>
+              </Heading>
+
+              <Paragraph className="mt-2">
+                Globalna stopa reciklaže čvrstog komunalnog otpada je 32%
+              </Paragraph>
+              <Paragraph className="mt-2">
+                Procena uštede CO2 ako se koristi reciklirani papir umesto čiste
+                celuloze procenjuje se na oko 2,5 do 5,2 miliona metričkih tona
+                godišnje.
+              </Paragraph>
+            </div>
+
+            <div className="w-full h-0.5 bg-white rounded-full my-6 relative before:content-[' '] before:block before:absolute before:w-3 before:h-3 before:rounded-full before:top-1/2 before:-translate-y-1/2 before:left-0 before:bg-white"></div>
+
+            <div>
+              <Heading>
+                <div className="flex gap-2 items-center">
+                  <BsArrowDownRightCircle /> 1t 📃
+                </div>
+              </Heading>
+
+              <Paragraph className="mt-2">
+                Reciklaža jedne tone papira štedi 17 stabala, 7.000 galona vode
+                i 2 barela nafte.
+              </Paragraph>
+              <Paragraph className="mt-2">
+                Recikliranjem jedne aluminijumske limenke štedi se dovoljno
+                energije da bi televizor mogao da radi tri sata.
+              </Paragraph>
+            </div>
+          </div>
         </section>
+        <section className="min-h-screen bg-secondary"></section>
       </main>
     </div>
   );
