@@ -1,11 +1,8 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useLayoutEffect, useEffect, useRef, useState } from "react";
 import classnames from "classnames";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CountUp from "react-countup";
 
 // Componentrs
 import {
@@ -17,10 +14,12 @@ import {
 import Dots from "../components/Dots";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
+import Cards from "../components/Cards";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
-import OtvorKanta from "../assets/kanta.png";
+import OtvorKanta from "../assets/kanta.webp";
+import DotsGIF from "../assets/dots.webp";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
@@ -32,6 +31,7 @@ import { CiBag1 } from "react-icons/ci";
 import { BsArrowUpRightCircle, BsArrowDownRightCircle } from "react-icons/bs";
 import RecycleBin from "../assets/recycle-bin.png";
 import { useInView } from "react-intersection-observer";
+import CardSwiper from "../components/CardSwiper";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -44,11 +44,38 @@ const Homepage = () => {
   );
   const [modalData, setModalData] = useState({ open: false, id: 1 });
   const [defaultCanCord, setDefaultCanCord] = useState(0);
-  const [offset, setOffset] = useState(0);
+  const [windowDimensions, setWindowDimensions] = useState({
+    w: window.innerWidth,
+    h: window.innerHeight,
+  });
+
+  const trashCan = useRef(null);
+  const svgCan = useRef(null);
+  const gifDots = useRef(null);
+
+  const { ref, inView, entry } = useInView({
+    threshold: 0.4,
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    const detectResizing = () => {
+      setWindowDimensions((prev) => ({
+        ...prev,
+        w: innerWidth,
+        h: innerHeight,
+      }));
+    };
+
+    window.addEventListener("resize", detectResizing);
+
+    return () => {
+      window.removeEventListener("resize", detectResizing);
+    };
+  }, [windowDimensions]);
 
   useLayoutEffect(() => {
     const handleScroll = () => {
-      setOffset(window.pageYOffset);
       const a = document
         .querySelector(".canCord")
         .getBoundingClientRect().bottom;
@@ -60,9 +87,9 @@ const Homepage = () => {
         .querySelector(".canCord")
         .getBoundingClientRect().top;
 
-      if (canCord <= 350) {
+      if (canCord <= 450) {
         document.querySelector(".sticky").classList.add("stickyCan");
-      } else if (canCord > 400) {
+      } else if (canCord > 470) {
         document.querySelector(".sticky").classList.remove("stickyCan");
       }
 
@@ -80,21 +107,66 @@ const Homepage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const ref = useRef();
-  const { ref: inViewRef, inView } = useInView();
+  useLayoutEffect(() => {
+    if (1024 > windowDimensions.w) {
+      gsap.to(trashCan.current, {
+        scrollTrigger: {
+          trigger: trashCan.current,
+          toggleActions: "play none reverse none",
+          markers: false,
+          scrub: 1,
+          end: "+=300",
+          start: "30px center",
+          id: "kanta",
+          markers: false,
+        },
+        duration: 2,
+        scale: 2,
+        y: -100,
+      });
 
-  const setRefs = useCallback(
-    (node) => {
-      ref.current = node;
-      console.log(ref.current);
-      inViewRef(node);
-    },
-    [inViewRef]
-  );
+      gsap.to(svgCan.current, {
+        scrollTrigger: {
+          trigger: trashCan.current,
+          toggleActions: "play none reverse none",
+          scrub: 1,
+          end: "+=300",
+          start: "30px center",
+        },
+        duration: 2,
+        scale: 2,
+      });
+    }
+
+    gsap.to(gifDots.current, {
+      scrollTrigger: {
+        trigger: gifDots.current,
+        start: "top top",
+        scrub: true,
+      },
+      y: 200,
+    });
+
+    gsap.to(".trashStatsContainer", {
+      scrollTrigger: {
+        trigger: ".trashStatsContainer",
+        scrub: true,
+        toggleActions: "play none reverse none",
+        markers: false,
+        id: "trashStatsContainer",
+        start: "-500 bottom",
+        end: "bottom bottom",
+      },
+      y: -500,
+    });
+  }, [windowDimensions]);
 
   return (
-    <div className="bg-[#fdd85f] overflow-hidden p-2">
-      <header className="p-1 pt-16 min-h-[95vh] relative z-10">
+    <div data-scroll-container className="bg-[#fdd85f] overflow-hidden p-2">
+      <header
+        data-scroll-section
+        className="p-1 pt-16 min-h-[95vh] relative z-10"
+      >
         <div className="glow" />
         <div className="text-center mt-4">
           <ul>
@@ -157,7 +229,7 @@ const Homepage = () => {
           <Dots className="-bottom-44" />
         </div>
 
-        <div className="sticky ml-4 isolate">
+        <div className="sticky ml-4 isolate pointer-events-none">
           <div className="frame">
             {images.map((image) => {
               return (
@@ -186,7 +258,7 @@ const Homepage = () => {
 
       <main className="lg:mt-24">
         {/* Intro */}
-        <section className="relative">
+        <section data-scroll-section className="relative">
           <div className="ui-fragments">
             <Dots className="bottom-24" />
           </div>
@@ -201,7 +273,7 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-screen bg-gradient relative">
+        <section data-scroll-section className="h-screen bg-gradient relative">
           <div className="ui-fragments">
             <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
@@ -250,9 +322,9 @@ const Homepage = () => {
 
           <Modal data={modalData} setModalData={setModalData} />
 
-          <AnimatedHeading h1="Kako" h2="recikliramo" />
+          <AnimatedHeading h1="Pravilan način" h2="recikliranja" />
 
-          <div className="px-3 -mt-24 relative center z-20 w-full">
+          <div className="px-3 -mt-32 relative center z-20 w-full">
             <div className="w-fit absolute center !left-12 sm:!left-[17.5%] mt-0.5">
               <Button
                 className="translate-x-8 lg:translate-x-12 mb-12 lg:mb-24"
@@ -315,13 +387,19 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="min-h-screen bg-secondary grid items-center">
-          <AnimatedHeading h1="Zašto" h2="Reciklirati" />
+        <section className="bg-secondary grid items-center pt-56">
           <div className="relative canCord mt-20 isolate">
-            <img src={OtvorKanta} className="relative z-0" />
-            <div className="absolute top-5 w-[93%] z-10 left-1/2 -translate-x-1/2">
+            <img
+              src={OtvorKanta}
+              ref={trashCan}
+              className="relative z-0 mx-auto xl:w-[75%]"
+            />
+            <div
+              ref={svgCan}
+              className="absolute top-5 w-[93%] z-10 left-1/2 -translate-x-1/2 md:top-11 md:w-[95%] lg:top-14 lg:left-[49%] xl:w-[70%] xl:left-1/2"
+            >
               <svg
-                class="svg-bg"
+                className="svg-bg"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1311 1492"
@@ -334,50 +412,65 @@ const Homepage = () => {
               </svg>
             </div>
           </div>
-          <div
-            className="mt-[30rem] w-[90%] sm:w-[70%] mx-auto"
-            style={{
-              transform: `translateY(${offset * -0.2}px)`,
-            }}
-          >
-            <div>
-              <Heading>
-                <div className="flex gap-2 items-center">
-                  <BsArrowUpRightCircle /> 17 %
-                </div>
-              </Heading>
 
-              <Paragraph className="mt-2">
-                Globalna stopa reciklaže čvrstog komunalnog otpada je 32%
-              </Paragraph>
-              <Paragraph className="mt-2">
-                Procena uštede CO2 ako se koristi reciklirani papir umesto čiste
-                celuloze procenjuje se na oko 2,5 do 5,2 miliona metričkih tona
-                godišnje.
-              </Paragraph>
+          <div className="mt-[20rem] 2xl:mt-40 w-[90%] sm:w-[70%] mx-auto lg:grid lg:grid-cols-2 trashStatsContainer xl:w-[50%]">
+            <div ref={ref}>
+              <div className="trashStats">
+                <Heading>
+                  <div className="flex gap-2 items-center">
+                    <BsArrowUpRightCircle />
+                    {inView && <CountUp end={32} suffix="%" duration={3} />}
+                  </div>
+                </Heading>
+
+                <Paragraph className="mt-2">
+                  Globalna stopa reciklaže čvrstog komunalnog otpada je 32%
+                </Paragraph>
+                <Paragraph className="mt-2">
+                  Procena uštede CO2 ako se koristi reciklirani papir umesto
+                  čiste celuloze procenjuje se na oko 2,5 do 5,2 miliona
+                  metričkih tona godišnje.
+                </Paragraph>
+              </div>
+
+              <div className="w-full h-0.5 bg-white rounded-full my-6 relative before:content-[' '] before:block before:absolute before:w-3 before:h-3 before:rounded-full before:top-1/2 before:-translate-y-1/2 before:left-0 before:bg-white"></div>
+
+              <div className="trashStats">
+                <Heading>
+                  <div className="flex gap-2 items-center xl:items-start">
+                    <BsArrowDownRightCircle className="xl:hidden" />
+                    {inView && <CountUp end={1000} suffix="kg" duration={3} />}
+                  </div>
+                </Heading>
+
+                <Paragraph className="mt-2 xl:text-left">
+                  Reciklaža jedne tone papira štedi 17 stabala, 7.000 galona
+                  vode i 2 barela nafte.
+                </Paragraph>
+                <Paragraph className="mt-2">
+                  Recikliranjem jedne aluminijumske limenke štedi se dovoljno
+                  energije da bi televizor mogao da radi tri sata.
+                </Paragraph>
+              </div>
             </div>
 
-            <div className="w-full h-0.5 bg-white rounded-full my-6 relative before:content-[' '] before:block before:absolute before:w-3 before:h-3 before:rounded-full before:top-1/2 before:-translate-y-1/2 before:left-0 before:bg-white"></div>
-
-            <div>
-              <Heading>
-                <div className="flex gap-2 items-center">
-                  <BsArrowDownRightCircle /> 1t 📃
-                </div>
-              </Heading>
-
-              <Paragraph className="mt-2">
-                Reciklaža jedne tone papira štedi 17 stabala, 7.000 galona vode
-                i 2 barela nafte.
-              </Paragraph>
-              <Paragraph className="mt-2">
-                Recikliranjem jedne aluminijumske limenke štedi se dovoljno
-                energije da bi televizor mogao da radi tri sata.
-              </Paragraph>
+            <div
+              ref={gifDots}
+              className="hidden lg:block lg:w-[50%] lg:mx-auto"
+            >
+              <img src={DotsGIF} />
+              <img src={DotsGIF} />
+              <img src={DotsGIF} />
             </div>
           </div>
         </section>
-        <section className="min-h-screen bg-secondary"></section>
+        <section className="-mt-44 md:mt-0 min-h-screen bg-secondary">
+          <AnimatedHeading h1="Da li uopšte" h2="znaš da ♻️" />
+
+          <div className="mt-32">
+            <CardSwiper />
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -13,7 +13,7 @@ html {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 11;
+  z-index: 100;
 }
 
 .app-border .bottom,
@@ -221,6 +221,14 @@ html {
   margin-top: 30px;
 }
 
+.div-spacing {
+  @apply mr-1 md:mr-2;
+}
+
+.div-spacing:last-child {
+  margin: 0;
+}
+
 .center {
   top: 50%;
   left: 50%;
@@ -252,9 +260,35 @@ html {
   background: linear-gradient(0deg, #a5c33a, #fdd85f);
 }
 
-.test:hover span {
-  width: auto;
-  transition: all 0.3s;
+.card {
+  transition: transform 800ms cubic-bezier(0.05, 0.43, 0.25, 0.95);
+}
+
+.card[data-status="unknown"] {
+  transform: scale(0);
+  transition: none;
+}
+
+.card[data-status="active"] {
+  transition-delay: 300ms;
+}
+
+.card[data-status="after"] {
+  transform: translateX(50%) scale(0);
+}
+
+.card[data-status="before"] {
+  transform: translateX(-50%) scale(0);
+}
+
+.card[data-status="becoming-active-from-after"] {
+  transform: translateX(50%) scale(0);
+  transition: none;
+}
+
+.card[data-status="becoming-active-from-before"] {
+  transform: translateX(-50%) scale(0);
+  transition: none;
 }
 
 /* Animations */

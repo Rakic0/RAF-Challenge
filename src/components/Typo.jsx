@@ -1,44 +1,48 @@
-import { useEffect, useState, useCallback, useRef } from "react";
-import { useInView } from "react-intersection-observer";
+import { useRef, useLayoutEffect, forwardRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export const FadeText = ({ children, className }) => {
-  const scrollTop = document.documentElement.scrollTop;
-  const [offset, setOffset] = useState(0);
+  const parentEl = useRef(null);
 
-  useEffect(() => {
-    function handleScroll() {
-      setOffset(window.pageYOffset);
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      parentEl.current,
+      { y: 0 },
+      {
+        scrollTrigger: {
+          trigger: parentEl.current,
+          toggleActions: "restart none reverse none",
+          scrub: 0.6,
+        },
+        y: -30,
+      }
+    );
   }, []);
 
   return (
-    <h3
-      className={`text-xl font-bold ${className}`}
-      style={{
-        transform: `translateY(${offset * 0.02}px)`,
-        opacity: scrollTop / 1200,
-      }}
-    >
-      {children}
-    </h3>
-  );
-};
-
-export const Heading = ({ children, className }) => {
-  return (
-    <h2
-      className={`${className} text-white text-4xl sm:text-5xl isolate font-semibold transition-all duration-1000`}
-    >
+    <h2 ref={parentEl} className={`text-xl font-bold ${className}`}>
       {children}
     </h2>
   );
 };
+
+FadeText.defaultProps = {
+  children: "Neki Text",
+};
+
+export const Heading = forwardRef(function Heading(props, ref) {
+  const { children, className } = props;
+  return (
+    <h2
+      className={`${className} text-white text-5xl sm:text-7xl lg:text-8xl isolate font-semibold transition-all duration-1000`}
+      ref={ref}
+    >
+      {children}
+    </h2>
+  );
+});
 
 export const Paragraph = ({ children, className }) => {
   return (
@@ -48,25 +52,60 @@ export const Paragraph = ({ children, className }) => {
   );
 };
 
-export const AnimatedHeading = ({ h1, h2, className }) => {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-  });
+export const AnimatedHeading = ({ h1, h2, children }) => {
+  const heading1 = useRef(null);
+  const heading2 = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      heading1.current,
+      { x: "-100%" },
+      {
+        scrollTrigger: {
+          trigger: heading1.current,
+          start: "top 80%",
+          toggleActions: "play none reverse none",
+          scrub: true,
+          end: "+=300",
+          id: "heading",
+        },
+        x: 30,
+        duration: 0.3,
+        ease: "circ",
+      }
+    );
+
+    gsap.fromTo(
+      heading2.current,
+      { x: "100%" },
+      {
+        scrollTrigger: {
+          trigger: heading1.current,
+          start: "top 80%",
+          toggleActions: "play none reverse none",
+          scrub: true,
+          id: "heading2",
+          end: "+=300",
+        },
+        x: 30,
+        duration: 0.3,
+        ease: "circ",
+      }
+    );
+  }, []);
 
   return (
-    <div ref={ref} className="ml-4">
-      <Heading
-        className={`${
-          inView && "show"
-        } text-5xl sm:!text-6xl -translate-x-full`}
-      >
-        {h1}
-      </Heading>
-      <Heading
-        className={`${inView && "show"} text-5xl sm:!text-6xl translate-x-full`}
-      >
-        {h2}
-      </Heading>
+    <div className="text-left -ml-5 sm:ml-4 xl:ml-12">
+      <Heading ref={heading1}>{h1}</Heading>
+      <Heading ref={heading2}>{h2}</Heading>
     </div>
   );
+};
+
+AnimatedHeading.defaultProps = {
+  children: "Neki Tekst",
+};
+
+export const SmallHeading = ({ children }) => {
+  return <h3 className="text-4xl font-bold text-[#444]">{children}</h3>;
 };

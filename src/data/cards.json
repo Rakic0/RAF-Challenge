@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "img": "https://www.datocms-assets.com/79468/1666820873-1_residus_viande.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Ostaci mesa",
+    "recyc": "yes"
+  },
+  {
+    "id": 2,
+    "img": "https://www.datocms-assets.com/79468/1666820881-2_megots.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Opušci od cigareta",
+    "recyc": "no"
+  },
+  {
+    "id": 3,
+    "img": "https://www.datocms-assets.com/79468/1666821011-5_citrouille_halloween.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Biljni ostaci",
+    "recyc": "yes"
+  },
+  {
+    "id": 4,
+    "img": "https://www.datocms-assets.com/79468/1666820901-3_mouchoirs.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Papirnate maramice",
+    "recyc": "yes"
+  },
+  {
+    "id": 5,
+    "img": "https://www.datocms-assets.com/79468/1666820981-6_cendres.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Pepeo",
+    "recyc": "yes"
+  },
+  {
+    "id": 6,
+    "img": "https://www.datocms-assets.com/79468/1666820966-7_bois_traite.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Drvo",
+    "recyc": "yes"
+  },
+  {
+    "id": 7,
+    "img": "https://www.datocms-assets.com/79468/1666820950-8_vetements.png?ixlib=js-2.3.2&auto=format&w=600",
+    "title": "Tekstil",
+    "recyc": "yes"
+  }
+]
