@@ -93,6 +93,16 @@ html {
   transform: translateY(-4px) rotate(-45deg);
 }
 
+@media only screen and (min-width: 768px) {
+  .line.open::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .line.open::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
 .line::before,
 .line::after {
   content: " ";

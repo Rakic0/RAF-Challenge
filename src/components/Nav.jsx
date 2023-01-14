@@ -139,10 +139,17 @@ const Nav = () => {
             </li>
           </ul>
 
-          <div className="w-32 h-32 cursor-pointer planet mx-auto mt-20 lg:hidden">
-            <Link to="/world-map">
-              <Planet />
-            </Link>
+          <div
+            className={`${open && "slideIn"}`}
+            style={{
+              animationDelay: "1.5s",
+            }}
+          >
+            <div className="w-32 h-32 cursor-pointer planet mx-auto mt-20 lg:hidden slideIn">
+              <Link to="/world-map">
+                <Planet />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
