@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Homepage from "./containers/Homepage";
+import WorldMap from "./containers/WorldMap";
 import { NavProvider } from "./utils/NavContext";
 
 export default function App() {
@@ -16,9 +17,17 @@ export default function App() {
       <NavProvider>
         <Nav />
         <Routes>
-          <Route path="/" element={<Homepage />}></Route>
+          <Route
+            path="/"
+            element={
+              <>
+                <Homepage />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/world-map" element={<WorldMap />} />
         </Routes>
-        <Footer />
       </NavProvider>
     </div>
   );

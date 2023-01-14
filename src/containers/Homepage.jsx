@@ -3,6 +3,7 @@ import classnames from "classnames";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CountUp from "react-countup";
+import { Link } from "react-router-dom";
 
 // Componentrs
 import {
@@ -16,11 +17,14 @@ import Dots from "../components/Dots";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Cards from "../components/Cards";
+import CardSwiper from "../components/CardSwiper";
+import Article from "../components/Article";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
 import OtvorKanta from "../assets/kanta.webp";
 import DotsGIF from "../assets/dots.webp";
+import { ReactComponent as Planet } from "../assets/planet.svg";
 
 // Icons
 import { RxDotFilled } from "react-icons/rx";
@@ -32,8 +36,6 @@ import { CiBag1 } from "react-icons/ci";
 import { BsArrowUpRightCircle, BsArrowDownRightCircle } from "react-icons/bs";
 import RecycleBin from "../assets/recycle-bin.png";
 import { useInView } from "react-intersection-observer";
-import CardSwiper from "../components/CardSwiper";
-import Article from "../components/Article";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -164,11 +166,13 @@ const Homepage = () => {
   }, [windowDimensions]);
 
   return (
-    <div data-scroll-container className="bg-[#fdd85f] overflow-hidden p-2">
-      <header
-        data-scroll-section
-        className="p-1 pt-16 min-h-[95vh] relative z-10"
-      >
+    <div className="bg-[#fdd85f] overflow-hidden p-2">
+      <div className="z-50 w-32 h-32 fixed bottom-16  cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
+        <Link to="/world-map">
+          <Planet />
+        </Link>
+      </div>
+      <header className="p-1 pt-16 min-h-[95vh] relative z-10">
         <div className="glow" />
         <div className="text-center mt-4">
           <ul>
@@ -260,7 +264,7 @@ const Homepage = () => {
 
       <main className="lg:mt-24">
         {/* Intro */}
-        <section data-scroll-section className="relative">
+        <section className="relative">
           <div className="ui-fragments">
             <Dots className="bottom-24" />
           </div>
@@ -275,7 +279,7 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section data-scroll-section className="h-screen bg-gradient relative">
+        <section className="h-screen bg-gradient relative">
           <div className="ui-fragments">
             <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
