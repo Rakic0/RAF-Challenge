@@ -464,7 +464,7 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="-mt-44 md:mt-0 min-h-screen bg-secondary">
+        <section className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-56 xl:pt-96 2xl:pt-[40rem] min-h-screen bg-secondary">
           <AnimatedHeading h1="Da li uopšte" h2="znaš da ♻️" />
 
           <div className="mt-32">

@@ -3,42 +3,49 @@
     "id": 1,
     "img": "https://www.datocms-assets.com/79468/1666820873-1_residus_viande.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Ostaci mesa",
-    "recyc": "yes"
+    "recyc": "no",
+    "backface": "Ostaci mesa mogu se kompostirati, koristiti kao stočna hrana, spaljivati kao gorivo, prerađivati u postrojenju za anaerobnu digestiju ili se izbegavati boljim planiranjem obroka. Proverite sa lokalnim vlastima odgovarajuće metode odlaganja."
   },
   {
     "id": 2,
     "img": "https://www.datocms-assets.com/79468/1666820881-2_megots.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Opušci od cigareta",
-    "recyc": "no"
+    "recyc": "no",
+    "backface": "Cigarete i filteri se ne mogu reciklirati, smatraju se opasnim otpadom i treba ih pravilno odlagati, po mogućnosti na određenim mestima u centrima za reciklažu ili objektima za upravljanje otpadom. Najbolji način da reciklirate cigarete je da ih ne pušite."
   },
   {
     "id": 3,
     "img": "https://www.datocms-assets.com/79468/1666821011-5_citrouille_halloween.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Biljni ostaci",
-    "recyc": "yes"
+    "recyc": "yes",
+    "backface": "Biljni ostaci, kao što su lišće, pokošena trava i baštenski otpad, mogu se reciklirati kroz proces koji se zove kompostiranje. Pored toga, neki biljni ostaci se takođe mogu koristiti u proizvodnji biogoriva."
   },
   {
     "id": 4,
     "img": "https://www.datocms-assets.com/79468/1666820901-3_mouchoirs.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Papirnate maramice",
-    "recyc": "yes"
+    "recyc": "yes",
+    "backface": "Papirne maramice se može reciklirati, ali često nije uključen u standardne programe recikliranja papira zbog svoje mekoće i slabosti. Mora biti čist, bez zagađivača i kombinovan sa drugim vrstama papira kao što su novine, kancelarijski papir i karton. Alternativno, može se kompostirati jer će se razgraditi za kratko vreme, obezbeđujući organsku materiju za tlo."
   },
   {
     "id": 5,
     "img": "https://www.datocms-assets.com/79468/1666820981-6_cendres.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Pepeo",
-    "recyc": "yes"
+    "recyc": "yes",
+    "backface": "Pepeo se može reciklirati, ali to zavisi od vrste pepela. Drveni pepeo se može koristiti kao đubrivo, dok pepeo od uglja može da sadrži toksine i zahteva posebne metode odlaganja. Proverite lokalne smernice za odgovarajući način recikliranja pepela."
   },
   {
     "id": 6,
     "img": "https://www.datocms-assets.com/79468/1666820966-7_bois_traite.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Drvo",
-    "recyc": "yes"
+    "recyc": "yes",
+    "backface": "Drvo se može reciklirati usitnjavanjem za malč, mlevenjem da bi se dobilo drvno brašno, korišćenjem kao izvor goriva ili pravljenjem proizvoda od drveta. Takođe se može poslati u pilanu da se preradi u novu građu. Način reciklaže zavisi od vrste drveta i dostupnosti lokalnih programa."
   },
   {
     "id": 7,
     "img": "https://www.datocms-assets.com/79468/1666820950-8_vetements.png?ixlib=js-2.3.2&auto=format&w=600",
     "title": "Tekstil",
-    "recyc": "yes"
+    "recyc": "yes",
+    "backface": "Tekstil se može reciklirati tako što se prenameni u novu odeću ili druge tekstilne proizvode, koristeći ih kao krpe, razbijajući ih da bi se napravila industrijska vlakna, ili granulirajući ih za proizvodnju sirovina za druge industrije. Način reciklaže zavisiće od vrste tekstila, njegovog stanja i lokalnih programa reciklaže."
   }
 ]

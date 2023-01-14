@@ -1,6 +1,5 @@
 import Cards from "./Cards";
-import { FaRecycle } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useLayoutEffect, useState } from "react";
 
 const CardSwiper = () => {
@@ -49,7 +48,7 @@ const CardSwiper = () => {
 
   return (
     <div>
-      <div className="h-[115vmin]">
+      <div className="h-[115vmin] sm:h-[90vmin] md:h-[70vmin] lg:h-[60vmin]">
         <Cards />
       </div>
 
@@ -58,14 +57,14 @@ const CardSwiper = () => {
           className="border-2 border-white p-2 rounded-full cursor-pointer hover:bg-white group transition-all"
           onClick={handleNotRecyclable}
         >
-          <RxCross2 className="text-2xl text-white group-hover:text-fuchsia-600" />
+          <BsChevronLeft className="text-2xl sm:text-3xl 2xl:text-4xl text-white group-hover:text-[#a5c33a]" />
         </button>
 
         <button
-          className="border-2 border-fuchsia-600 p-2 rounded-full cursor-pointer hover:bg-fuchsia-600 group transition-all"
+          className="border-2 border-white p-2 rounded-full cursor-pointer hover:bg-white group transition-all"
           onClick={handleRecyclable}
         >
-          <FaRecycle className="text-2xl text-fuchsia-600 group-hover:text-white" />
+          <BsChevronRight className="text-2xl sm:text-3xl 2xl:text-4xl text-white group-hover:text-[#a5c33a]" />
         </button>
       </div>
     </div>

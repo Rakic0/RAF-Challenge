@@ -11,6 +11,7 @@ const Cards = () => {
           title={item.title}
           key={item.id}
           style={{ zIndex: i }}
+          backface={item.backface}
           recyc={item.recyc}
           status={i === 0 ? "active" : "unknown"}
         />
