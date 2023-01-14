@@ -11,7 +11,7 @@ const Article = ({ img, alt, h1, p }) => {
         />
         <div className="xl:w-96">
           <SmallHeading className="text-black mb-2">{h1}</SmallHeading>
-          <Paragraph className="text-black">{p}</Paragraph>
+          <Paragraph className="!text-black">{p}</Paragraph>
         </div>
       </div>
     </article>
