@@ -166,7 +166,7 @@ const Homepage = () => {
   }, [windowDimensions]);
 
   return (
-    <div className="bg-[#fdd85f] overflow-hidden p-2">
+    <div className="bg-[#fdd85f] overflow-hidden p-2" id="uvod">
       <div className="z-50 w-32 h-32 fixed bottom-16  cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
         <Link to="/world-map">
           <Planet />
@@ -279,7 +279,10 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="h-screen bg-gradient relative">
+        <section
+          className="h-screen bg-gradient relative"
+          id="kako-recikliramo"
+        >
           <div className="ui-fragments">
             <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg
@@ -397,7 +400,10 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="bg-secondary grid items-center pt-56">
+        <section
+          className="bg-secondary grid items-center pt-56"
+          id="statistika"
+        >
           <div className="relative canCord mt-20 isolate">
             <img
               src={OtvorKanta}
@@ -475,7 +481,10 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-0 min-h-screen bg-secondary">
+        <section
+          className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-0 min-h-screen bg-secondary"
+          id="sta-se-reciklira"
+        >
           <AnimatedHeading h1="Da li uopšte" h2="znaš da ♻️" />
 
           <div className="mt-32">
@@ -498,7 +507,7 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section className="bg-[#fdd85f] px-2">
+        <section className="bg-[#fdd85f] px-2" id="zasto-reciklirati">
           <div className="xs:w-[80%] lg:w-[90%] 2xl:w-[50%] mx-auto">
             <div className="lg:grid lg:grid-cols-2 lg:gap-8">
               <Article

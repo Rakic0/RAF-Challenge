@@ -12,6 +12,19 @@ import { SmallHeading } from "./Typo";
 const Nav = () => {
   const { open, toggleNav } = useContext(NavContext);
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!e.target.closest(".nav-link")) return;
+
+    const id = e.target.closest(".nav-link").getAttribute("href");
+
+    document.querySelector(id).scrollIntoView({
+      behavior: "smooth",
+    });
+
+    toggleNav((prev) => !prev);
+  };
+
   return (
     <>
       <nav className="mt-2 sm:mt-6 xl:mt-10 2xl:mt-12 flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 w-[90%] z-50">
@@ -45,10 +58,10 @@ const Nav = () => {
             Sekcije
           </SmallHeading>
 
-          <ul className="nav-container">
+          <ul className="nav-container" onClick={handleClick}>
             <li className={`${open && "slideIn"}`}>
               <a
-                href="#"
+                href="#uvod"
                 className="flex items-center gap-4 text-amber-700 text-opacity-50 font-bold text-2xl sm:text-4xl lg:text-6xl 2xl:text-7xl cursor-pointer hover:translate-x-2 mb-8 transition-all duration-300 nav-link"
               >
                 <div className="border text-xl flex items-center justify-center border-amber-700 border-opacity-50 text-amber-700 text-opacity-50  rounded-full w-6 h-6 sm:w-8 sm:h-8 ">
@@ -65,14 +78,13 @@ const Nav = () => {
               }}
             >
               <a
-                href="#"
+                href="#kako-recikliramo"
                 className="flex items-center gap-4 text-amber-700 text-opacity-50 font-bold text-2xl sm:text-4xl lg:text-6xl 2xl:text-7xl cursor-pointer hover:translate-x-2 mb-8 transition-all duration-300 nav-link"
               >
                 <div className="border text-xl flex items-center justify-center border-amber-700 border-opacity-50 text-amber-700 text-opacity-50  rounded-full w-6 h-6 sm:w-8 sm:h-8">
                   2
                 </div>{" "}
                 <span className="whitespace-nowrap">Kako reciklirati</span>
-                <span className="hidden">Pravilan način recikliranja</span>
               </a>
             </li>
 
@@ -83,7 +95,7 @@ const Nav = () => {
               }}
             >
               <a
-                href="#"
+                href="#statistika"
                 className="flex items-center gap-4 text-amber-700 text-opacity-50 font-bold text-2xl sm:text-4xl lg:text-6xl 2xl:text-7xl cursor-pointer hover:translate-x-2 mb-8 transition-all duration-300 nav-link"
               >
                 <div className="border text-xl flex items-center justify-center border-amber-700 border-opacity-50 text-amber-700 text-opacity-50  rounded-full w-6 h-6 sm:w-8 sm:h-8">
@@ -100,7 +112,7 @@ const Nav = () => {
               }}
             >
               <a
-                href="#"
+                href="#sta-se-reciklira"
                 className="flex items-center gap-4 text-amber-700 text-opacity-50 font-bold text-2xl sm:text-4xl lg:text-6xl 2xl:text-7xl cursor-pointer hover:translate-x-2 mb-8 transition-all duration-300 nav-link"
               >
                 <div className="border text-xl flex items-center justify-center border-amber-700 border-opacity-50 text-amber-700 text-opacity-50  rounded-full w-6 h-6 sm:w-8 sm:h-8">
@@ -116,7 +128,7 @@ const Nav = () => {
               }}
             >
               <a
-                href="#"
+                href="#zasto-reciklirati"
                 className="flex items-center gap-4 text-amber-700 text-opacity-50 font-bold text-2xl sm:text-4xl lg:text-6xl 2xl:text-7xl cursor-pointer hover:translate-x-2 mb-8 transition-all duration-300 nav-link"
               >
                 <div className="border text-xl flex items-center justify-center border-amber-700 border-opacity-50 text-amber-700 text-opacity-50  rounded-full w-6 h-6 sm:w-8 sm:h-8">
