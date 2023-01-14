@@ -46,13 +46,15 @@ export const Heading = forwardRef(function Heading(props, ref) {
 
 export const Paragraph = ({ children, className }) => {
   return (
-    <p className={`${className} text-white text-sm sm:text-base md:text-lg`}>
+    <p
+      className={`${className} text-white text-sm sm:text-base md:text-lg xl:text-xl`}
+    >
       {children}
     </p>
   );
 };
 
-export const AnimatedHeading = ({ h1, h2, children }) => {
+export const AnimatedHeading = ({ h1, h2, children, color }) => {
   const heading1 = useRef(null);
   const heading2 = useRef(null);
 
@@ -96,8 +98,12 @@ export const AnimatedHeading = ({ h1, h2, children }) => {
 
   return (
     <div className="text-left -ml-5 sm:ml-4 xl:ml-12">
-      <Heading ref={heading1}>{h1}</Heading>
-      <Heading ref={heading2}>{h2}</Heading>
+      <Heading ref={heading1} className={`!text-[${color}]`}>
+        {h1}
+      </Heading>
+      <Heading ref={heading2} className={`!text-[${color}]`}>
+        {h2}
+      </Heading>
     </div>
   );
 };
@@ -106,6 +112,12 @@ AnimatedHeading.defaultProps = {
   children: "Neki Tekst",
 };
 
-export const SmallHeading = ({ children }) => {
-  return <h3 className="text-4xl font-bold text-[#444]">{children}</h3>;
+export const SmallHeading = ({ children, className }) => {
+  return (
+    <h3
+      className={`text-2xl font-bold xl:text-4xl whitespace-nowrap ${className}`}
+    >
+      {children}
+    </h3>
+  );
 };

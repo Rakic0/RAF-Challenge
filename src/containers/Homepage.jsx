@@ -10,6 +10,7 @@ import {
   FadeText,
   Heading,
   Paragraph,
+  SmallHeading,
 } from "../components/Typo";
 import Dots from "../components/Dots";
 import Button from "../components/Button";
@@ -32,6 +33,7 @@ import { BsArrowUpRightCircle, BsArrowDownRightCircle } from "react-icons/bs";
 import RecycleBin from "../assets/recycle-bin.png";
 import { useInView } from "react-intersection-observer";
 import CardSwiper from "../components/CardSwiper";
+import Article from "../components/Article";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -264,7 +266,7 @@ const Homepage = () => {
           </div>
 
           <div className="min-h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
-            <FadeText className="px-2 text-center relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
+            <FadeText className="px-2 text-center  relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
               Recikliranje je jednostavan i efikasan način da se smanji otpad,
               štede resursi i zaštiti okolina. Krenite sa recikliranjem danas i
               pomozite nam da stvorimo bolju budućnost za sebe i buduće
@@ -322,7 +324,11 @@ const Homepage = () => {
 
           <Modal data={modalData} setModalData={setModalData} />
 
-          <AnimatedHeading h1="Pravilan način" h2="recikliranja" />
+          <AnimatedHeading
+            h1="Pravilan način"
+            h2="recikliranja"
+            color={"#846d0a"}
+          />
 
           <div className="px-3 -mt-32 relative center z-20 w-full">
             <div className="w-fit absolute center !left-12 sm:!left-[17.5%] mt-0.5">
@@ -355,7 +361,7 @@ const Homepage = () => {
               </Button>
             </div>
 
-            <div className="w-fit absolute top-1/2 -translate-x-1/2 -translate-y-1/2 right-0 sm:right-[8%] lg:right-[10%]">
+            <div className="w-fit absolute top-1/2 -translate-x-1/2 -translate-y-1/2 right-0 sm:right-[8%] lg:right-[10%] xl:right-[15%]">
               <Button
                 className="-translate-x-8 lg:-translate-x-12 mb-12 lg:mb-24"
                 onClick={() =>
@@ -464,11 +470,73 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-56 xl:pt-96 2xl:pt-[40rem] min-h-screen bg-secondary">
+
+        <section className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-0 min-h-screen bg-secondary">
           <AnimatedHeading h1="Da li uopšte" h2="znaš da ♻️" />
 
           <div className="mt-32">
             <CardSwiper />
+          </div>
+        </section>
+
+        <section className="bg-gradient-reverse h-screen relative">
+          <div>
+            <Dots />
+          </div>
+          <div className="min-h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
+            <FadeText className="px-2 text-center  relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
+              Reciklaža i zaštita životne sredine su od suštinskog značaja za
+              očuvanje naše planete i budućih generacija. Svaki napor da se
+              smanji, ponovo upotrebi i reciklira ima značajan uticaj. Odabir
+              recikliranja je preuzimanje odgovornosti i očuvanje resursa. Svi
+              imamo moć da napravimo razliku, hajde da je koristimo odgovorno.
+            </FadeText>
+          </div>
+        </section>
+
+        <section className="bg-[#fdd85f] px-2">
+          <div className="xs:w-[80%] lg:w-[90%] 2xl:w-[50%] mx-auto">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+              <Article
+                img="https://images.unsplash.com/photo-1617281660864-df946f2439d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                alt="A quarry in Siggiewi, Malta"
+                h1="Očuvanje prirodnih resursa"
+                p="Reciklaža pomaže u očuvanju prirodnih resursa kao što su drvo,
+              minerali i voda tako što se manje koriste za proizvodnju novih
+              proizvoda."
+              />
+            </div>
+            <div className="hidden lg:block"></div>
+            {/*  */}
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:justify-items-end">
+              <div className="hidden lg:block"></div>
+              <Article
+                img="https://images.unsplash.com/photo-1618477462146-050d2767eac4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                alt="teamwork beach cleanup"
+                h1="Smanjenje zagađenja"
+                p="Recikliranjem se smanjuje zagađenje izazvano ekstrakcijom i preradom sirovina. Takođe smanjuje količinu otpada koji odlazi na deponije, što može dovesti do zagađenja vazduha i vode."
+              />
+            </div>
+            {/*  */}
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+              <Article
+                img="https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                alt="Solarni paneli"
+                h1="Ušteda energije"
+                p="Reciklaža štedi energiju jer je potrebno manje energije za recikliranje materijala nego za ekstrakciju i obradu novih sirovina."
+              />
+              <div className="hidden lg:block"></div>
+            </div>
+            {/*  */}
+            <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:justify-items-end">
+              <div className="hidden lg:block"></div>
+              <Article
+                img="https://images.pexels.com/photos/3039036/pexels-photo-3039036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Klimatske promene"
+                h1="Klimatske promene"
+                p="Recikliranje pomaže u smanjenju emisije gasova staklene bašte, koji doprinose klimatskim promenama. Očuvanjem resursa i smanjenjem zagađenja, reciklaža igra važnu ulogu u ublažavanju efekata klimatskih promena."
+              />
+            </div>
           </div>
         </section>
       </main>

@@ -18,7 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Homepage />}></Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </NavProvider>
     </div>
   );
