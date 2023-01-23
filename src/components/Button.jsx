@@ -9,11 +9,11 @@ const Button = ({ children, className, onClick }) => {
   useLayoutEffect(() => {
     gsap.fromTo(
       btn.current,
-      { scale: 0.2 },
+      { scale: 0 },
       {
         scrollTrigger: {
           trigger: btn.current,
-          start: "top bottom",
+          start: "top 75%",
         },
         scale: 1,
         ease: "elastic",

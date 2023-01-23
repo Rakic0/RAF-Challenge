@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { ReactComponent as Planet } from "../assets/planet.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Context
 import NavContext from "../utils/NavContext";
 
 // IMGs
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo.webp";
 import { SmallHeading } from "./Typo";
 
 const Nav = () => {
   const { open, toggleNav } = useContext(NavContext);
+  const { pathname } = useLocation();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -28,14 +29,20 @@ const Nav = () => {
   return (
     <>
       <nav className="mt-2 sm:mt-6 xl:mt-10 2xl:mt-12 flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 w-[90%] z-50">
-        <img src={Logo} alt="Recycle logo" className="w-12 md:w-16" />
+        <Link to="/">
+          <img src={Logo} alt="Recycle logo" className="w-12 md:w-16" />
+        </Link>
 
-        <div
-          className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full cursor-pointer flex items-center justify-center menu isolate z-50 relative"
-          onClick={() => toggleNav()}
-        >
-          <span className={`line ${open && "open"}`}></span>
-        </div>
+        {pathname?.includes("world-map") ? (
+          ""
+        ) : (
+          <div
+            className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full cursor-pointer flex items-center justify-center menu isolate z-50 relative"
+            onClick={() => toggleNav()}
+          >
+            <span className={`line ${open && "open"}`}></span>
+          </div>
+        )}
       </nav>
 
       <div
@@ -145,7 +152,10 @@ const Nav = () => {
               animationDelay: "1.5s",
             }}
           >
-            <div className="w-32 h-32 cursor-pointer planet mx-auto mt-20 lg:hidden slideIn">
+            <div
+              className="w-32 h-32 cursor-pointer planet mx-auto mt-20 lg:hidden slideIn"
+              onClick={() => toggleNav()}
+            >
               <Link to="/world-map">
                 <Planet />
               </Link>

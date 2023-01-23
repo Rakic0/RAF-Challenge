@@ -31,7 +31,7 @@ const Modal = ({ data: { id, open }, className, setModalData }) => {
         </svg>
       </div>
       <div className="absolute z-40 top-[50vh] left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-        <RxCross2 className="text-4xl hover:cursor-pointer absolute top-8 hidden bg-gray-200 rounded-full p-2" />
+        <RxCross2 className="text-4xl hover:cursor-pointer absolute -top-16 lg:-top-32 lg:text-5xl left-1/2 -translate-x-1/2 hidden sm:block bg-gray-200 rounded-full p-2" />
         {data.map((item) => {
           if (item.id !== id) return;
 

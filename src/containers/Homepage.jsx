@@ -63,6 +63,10 @@ const Homepage = () => {
   });
 
   useEffect(() => {
+    document.title = "EcoSoft | Reciklaža";
+  }, []);
+
+  useEffect(() => {
     const detectResizing = () => {
       setWindowDimensions((prev) => ({
         ...prev,
@@ -485,7 +489,7 @@ const Homepage = () => {
           className="-mt-44 pb-12 sm:mt-0 md:pt-44 lg:pt-0 min-h-screen bg-secondary"
           id="sta-se-reciklira"
         >
-          <AnimatedHeading h1="Da li uopšte" h2="znaš da ♻️" />
+          <AnimatedHeading h1="Šta može" h2="a šta ne" />
 
           <div className="mt-32">
             <CardSwiper />
