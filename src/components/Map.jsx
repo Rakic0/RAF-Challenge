@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  LayersControl,
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-} from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import { RecyclingCenterIcon, MyLocationIcon } from "./MapIcons";
+import axios from "axios";
 
 function Map() {
   const [coords, setCoords] = useState({
@@ -18,6 +14,7 @@ function Map() {
   });
   const [loading, setLoading] = useState(true);
   const [satelite, setSatelite] = useState(false);
+  const [recyclingCenterData, setRecyclingCenterData] = useState([]);
 
   // Satelite
   const handleTileSkin = () => {
@@ -60,6 +57,15 @@ function Map() {
       handleError,
       options
     );
+
+    let QUERY = encodeURIComponent('*[_type == "centar-za-reciklazu"]');
+    const URL = `${import.meta.env.VITE_API_URL}?query=${QUERY}`;
+
+    console.log(URL);
+
+    fetch(URL)
+      .then((res) => res.json())
+      .then(({ result }) => setRecyclingCenterData(result));
   }, []);
 
   return (
@@ -85,6 +91,20 @@ function Map() {
                   : "https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=IdEpcvdOPsmPBnp2lv0T"
               }
             />
+            <Marker position={coords} icon={MyLocationIcon}>
+              <Popup>Ovde se nalazis</Popup>
+            </Marker>
+
+            {recyclingCenterData.map((item) => {
+              return (
+                <Marker
+                  position={{ lat: item.lat, lng: item.lng }}
+                  icon={RecyclingCenterIcon}
+                >
+                  <Popup>{item.name}</Popup>
+                </Marker>
+              );
+            })}
           </MapContainer>
 
           <div
