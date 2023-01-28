@@ -1,6 +1,7 @@
 import data from "../data/howToRecycle.json";
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useState } from "react";
+import { Paragraph } from "./Typo";
 
 const Modal = ({ data: { id, open }, className, setModalData }) => {
   const [color, setColor] = useState("");
@@ -37,10 +38,12 @@ const Modal = ({ data: { id, open }, className, setModalData }) => {
 
           return (
             <div className="text-center lg:px-4 xl:w-[40rem]" key={item.id}>
-              <h2 className="font-bold text-xl sm:text-2xl md:text-3xl mb-2">
+              <h2 className="font-bold font-aileron-bold text-xl sm:text-2xl md:text-3xl mb-2">
                 {item.title}
               </h2>
-              <p className="text-xs sm:text-base md:text-lg">{item.desc}</p>
+              <Paragraph className="text-xs sm:text-base md:text-lg !text-black">
+                {item.desc}
+              </Paragraph>
             </div>
           );
         })}

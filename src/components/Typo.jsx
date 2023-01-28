@@ -36,7 +36,7 @@ export const Heading = forwardRef(function Heading(props, ref) {
   const { children, className } = props;
   return (
     <h2
-      className={`${className} text-white text-5xl sm:text-7xl lg:text-8xl isolate font-semibold transition-all duration-1000`}
+      className={`${className} font-aileron-heavy  text-white text-5xl sm:text-7xl lg:text-8xl isolate font-semibold transition-all duration-1000`}
       ref={ref}
     >
       {children}
@@ -47,7 +47,7 @@ export const Heading = forwardRef(function Heading(props, ref) {
 export const Paragraph = ({ children, className }) => {
   return (
     <p
-      className={`${className} text-white text-sm sm:text-base md:text-lg xl:text-xl`}
+      className={`${className} text-white text-sm sm:text-base md:text-lg xl:text-xl font-aileron-regular`}
     >
       {children}
     </p>
@@ -115,7 +115,7 @@ AnimatedHeading.defaultProps = {
 export const SmallHeading = ({ children, className }) => {
   return (
     <h3
-      className={`text-2xl font-bold xl:text-4xl whitespace-nowrap ${className}`}
+      className={`text-2xl xl:text-4xl whitespace-nowrap font-aileron-bold ${className}`}
     >
       {children}
     </h3>

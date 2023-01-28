@@ -63,7 +63,7 @@ const Card = ({ title, img, style, i, status, backface, recyc }) => {
           </div>
 
           <div className="w-[80%] sm:w-[60%] md:w-[50%] lg:w-96 absolute left-1/2 -translate-x-1/2 p-4 xs:p-10">
-            <h3 className="text-2xl text-center font-bold text-white mb-2 xs:text-3xl xs:mb-8">
+            <h3 className="text-2xl text-center font-bold text-white mb-2 xs:text-3xl xs:mb-8 font-aileron-heavy">
               {recyc === "yes"
                 ? "Može da se reciklira"
                 : "Ne može da se reciklira"}

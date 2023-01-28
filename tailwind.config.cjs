@@ -29,7 +29,9 @@ module.exports = {
         slideIn: "slideIn 0.5s ease-in-out",
       },
       fontFamily: {
-        rubik: ["Rubik", ...defaultTheme.fontFamily.sans],
+        "aileron-regular": ["Aileron-Regular", ...defaultTheme.fontFamily.sans],
+        "aileron-bold": ["Aileron-Bold", ...defaultTheme.fontFamily.sans],
+        "aileron-heavy": ["Aileron-Heavy", ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -181,12 +181,12 @@ const Homepage = () => {
         <div className="text-center mt-4">
           <ul>
             <li>
-              <h1 className="text-[10vw] text-opacity-50 font-bold text-amber-700">
+              <h1 className="text-[10vw] text-opacity-50 font-bold text-amber-700 font-aileron-heavy">
                 Život
               </h1>
             </li>
             <li>
-              <h1 className="text-[20vw] text-opacity-50 font-bold text-amber-700 -mt-8 sm:-mt-12 lg:-mt-24 2xl:-mt-44">
+              <h1 className="text-[20vw] text-opacity-50 font-bold text-amber-700 -mt-8 sm:-mt-12 lg:-mt-24 2xl:-mt-44 font-aileron-heavy">
                 reciklaže
               </h1>
             </li>
@@ -260,7 +260,7 @@ const Homepage = () => {
             <RxDotFilled className="text-2xl" />
             <hr className="bg-black text-black h-0.5 border-0 w-full -ml-2" />
           </div>
-          <h3 className="text-sm sm:text-lg md:text-2xl font-bold ml-2">
+          <h3 className="text-sm sm:text-lg md:text-2xl ml-2 font-aileron-bold">
             Ekosistemima nisu potrebni ljudi. Ljudima su potrebni ekosistemi
           </h3>
         </div>
@@ -274,7 +274,7 @@ const Homepage = () => {
           </div>
 
           <div className="min-h-screen flex items-center justify-center sm:w-[90%] sm:mx-auto">
-            <FadeText className="px-2 text-center  relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl">
+            <FadeText className="px-2 text-center  relative z-10 sm:text-3xl lg:text-4xl xl:text-6xl font-aileron-heavy">
               Recikliranje je jednostavan i efikasan način da se smanji otpad,
               štede resursi i zaštiti okolina. Krenite sa recikliranjem danas i
               pomozite nam da stvorimo bolju budućnost za sebe i buduće
