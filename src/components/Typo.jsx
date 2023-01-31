@@ -114,9 +114,7 @@ AnimatedHeading.defaultProps = {
 
 export const SmallHeading = ({ children, className }) => {
   return (
-    <h3
-      className={`text-2xl xl:text-4xl whitespace-nowrap font-aileron-bold ${className}`}
-    >
+    <h3 className={`text-2xl xl:text-4xl font-aileron-bold ${className}`}>
       {children}
     </h3>
   );

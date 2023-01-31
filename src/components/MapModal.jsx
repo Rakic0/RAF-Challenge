@@ -58,11 +58,11 @@ const MapModal = ({ ecoData, setEcoData }) => {
         </AliceCarousel>
 
         <div
-          className="p-3 overflow-y-auto"
+          className="p-3 overflow-y-auto overflow-x-hidden"
           style={{ height: `${contentContainer}px` }}
         >
           <SmallHeading className="text-gray-700 text-4xl mb-2">
-            {ecoData?.title}{" "}
+            {ecoData?.title}
           </SmallHeading>
           <Paragraph className="!text-black">{ecoData?.description}</Paragraph>
         </div>
