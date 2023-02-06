@@ -3,6 +3,8 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useEffect, useState } from "react";
 import { Heading, Paragraph, SmallHeading } from "./Typo";
+import ReactMarkdown from "react-markdown";
+import "../markdownStyles.css";
 
 const MapModal = ({ ecoData, setEcoData }) => {
   const handleDragStart = (e) => e.preventDefault();
@@ -15,8 +17,6 @@ const MapModal = ({ ecoData, setEcoData }) => {
     );
 
     const px = (70 * vh) / 100 - 24 * 16;
-
-    console.log(px);
 
     setContentContainer(px);
   }, []);
@@ -47,8 +47,8 @@ const MapModal = ({ ecoData, setEcoData }) => {
             <img
               src={`https://cdn.sanity.io/images/0g7ytf1u/production/${item.asset._ref.slice(
                 6,
-                -4
-              )}.png`}
+                -5
+              )}.webp`}
               alt={item.title}
               key={item._key}
               onDragStart={handleDragStart}
@@ -61,10 +61,10 @@ const MapModal = ({ ecoData, setEcoData }) => {
           className="p-3 overflow-y-auto overflow-x-hidden"
           style={{ height: `${contentContainer}px` }}
         >
-          <SmallHeading className="text-gray-700 text-4xl mb-2">
+          <h3 className="text-gray-700 text-2xl mb-2 font-aileron-regular font-bold">
             {ecoData?.title}
-          </SmallHeading>
-          <Paragraph className="!text-black">{ecoData?.description}</Paragraph>
+          </h3>
+          <ReactMarkdown children={ecoData?.description} />
         </div>
       </div>
     </div>
