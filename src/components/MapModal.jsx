@@ -27,7 +27,7 @@ const MapModal = ({ ecoData, setEcoData }) => {
         ecoData
           ? "opacity-100 pointer-events-auto visible"
           : "opacity-0 pointer-events-none invisible"
-      } absolute top-1/2 left-1/2 transofrm -translate-x-1/2 transition-all -translate-y-1/2 bg-white w-[90vw] sm:w-[70vw] md:w-[50vw] xl:w-[30vw] 2xl:w-[20vw] h-[70vh] rounded-lg z-40 overflow-hidden`}
+      } absolute top-1/2 left-1/2 transofrm -translate-x-1/2 transition-all -translate-y-1/2 bg-white w-[90vw] sm:w-[70vw] md:w-[50vw] xl:w-[45vw] 2xl:w-[40vw] h-[70vh] rounded-lg z-40 overflow-hidden`}
     >
       <RxCross2
         className="text-3xl absolute right-3 top-3 cursor-pointer z-40"

@@ -167,26 +167,71 @@ const Homepage = () => {
       },
       y: -500,
     });
+
+    gsap.fromTo(
+      ".header-quote",
+      {
+        x: "100%",
+      },
+      {
+        x: 0,
+        duration: 0.7,
+        delay: 1.2,
+      }
+    );
+
+    gsap.fromTo(
+      ".paper",
+      {
+        y: "200%",
+        rotate: 40,
+      },
+      {
+        y: 0,
+        rotate: 0,
+        duration: 2,
+        delay: 1.4,
+      }
+    );
+
+    gsap.fromTo(
+      ".planet-header",
+      {
+        y: "200%",
+        rotate: -30,
+        x: -100,
+      },
+      {
+        y: 0,
+        x: 0,
+        rotate: 0,
+        duration: 2,
+        delay: 3,
+      }
+    );
   }, [windowDimensions]);
 
   return (
-    <div className="bg-[#fdd85f] overflow-hidden p-2" id="uvod">
-      <div className="z-50 w-32 h-32 fixed bottom-16  cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
-        <Link to="/world-map">
-          <Planet />
-        </Link>
+    <div className="bg-[#fdd85f] overflow-hidden p-2">
+      <div className="planet-header h-32 fixed bottom-16 left-24 z-50">
+        <div className="z-50 w-32 h-32 cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
+          <Link to="/world-map">
+            <Planet />
+          </Link>
+        </div>
       </div>
+
       <header className="p-1 pt-16 min-h-[95vh] relative z-10">
         <div className="glow" />
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 relative">
           <ul>
             <li>
-              <h1 className="text-[10vw] text-opacity-50 font-bold text-amber-700 font-aileron-heavy">
+              <h1 className="text-[10vw] text-opacity-50 font-bold text-amber-700 font-aileron-heavy animate-scaleIn">
                 Život
               </h1>
             </li>
             <li>
-              <h1 className="text-[20vw] text-opacity-50 font-bold text-amber-700 -mt-8 sm:-mt-12 lg:-mt-24 2xl:-mt-44 font-aileron-heavy">
+              <h1 className="text-[20vw] text-opacity-50 font-bold text-amber-700 -mt-8 sm:-mt-12 lg:-mt-24 2xl:-mt-44 font-aileron-heavy animate-scaleIn">
                 reciklaže
               </h1>
             </li>
@@ -194,7 +239,7 @@ const Homepage = () => {
         </div>
 
         <div className="ui-fragments">
-          <div className="absolute w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute -z-10 w-[46vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <svg
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +274,7 @@ const Homepage = () => {
                 cy="187"
                 r="185"
                 stroke="#000"
-                strokeWidth="4"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeDasharray="0.1 20"
               ></circle>
@@ -239,7 +284,12 @@ const Homepage = () => {
           <Dots className="-bottom-44" />
         </div>
 
-        <div className="sticky ml-4 isolate pointer-events-none">
+        <div
+          className="sticky ml-4 isolate pointer-events-none paper"
+          style={{
+            transitionDelay: "2",
+          }}
+        >
           <div className="frame">
             {images.map((image) => {
               return (
@@ -255,7 +305,7 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="w-1/2 md:w-1/3 xl:w-1/4 absolute right-4 bottom-4">
+        <div className="w-1/2 md:w-1/3 xl:w-1/4 absolute right-4 bottom-4 header-quote">
           <div className="flex items-center">
             <RxDotFilled className="text-2xl" />
             <hr className="bg-black text-black h-0.5 border-0 w-full -ml-2" />
@@ -458,7 +508,7 @@ const Homepage = () => {
               <div className="trashStats">
                 <Heading>
                   <div className="flex gap-2 items-center xl:items-start">
-                    <BsArrowDownRightCircle className="xl:hidden" />
+                    <BsArrowDownRightCircle />
                     {inView && <CountUp end={1000} suffix="kg" duration={3} />}
                   </div>
                 </Heading>
@@ -556,6 +606,8 @@ const Homepage = () => {
             </div>
           </div>
         </section>
+
+        <section className="lg:hidden w-full h-80 bg-white testsec"></section>
       </main>
     </div>
   );

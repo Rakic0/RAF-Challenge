@@ -4,17 +4,17 @@
 
 @font-face {
   font-family: "Aileron-Regular";
-  src: url("./fonts/Aileron-Regular.woff") format("woff");
+  src: url("./fonts/OpenSans-Regular.ttf") format("woff");
 }
 
 @font-face {
   font-family: "Aileron-Bold";
-  src: url("./fonts/Aileron-Bold.woff") format("woff");
+  src: url("./fonts/OpenSans-Bold.ttf") format("woff");
 }
 
 @font-face {
   font-family: "Aileron-Heavy";
-  src: url("./fonts/Aileron-Heavy.woff") format("woff");
+  src: url("./fonts/OpenSans-ExtraBold.ttf") format("woff");
 }
 
 html {
@@ -422,4 +422,14 @@ html {
 .cls-2 {
   stroke-miterlimit: 10;
   stroke-width: 8px;
+}
+.testsec {
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.31),
+      rgba(0, 0, 0, 0.31)
+    ),
+    url("./assets/world-map.webp");
+  background-position: center;
+  background-size: cover;
 }

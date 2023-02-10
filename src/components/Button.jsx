@@ -15,6 +15,7 @@ const Button = ({ children, className, onClick }) => {
           trigger: btn.current,
           start: "top 75%",
         },
+        duration: 1.6,
         scale: 1,
         ease: "elastic",
       }

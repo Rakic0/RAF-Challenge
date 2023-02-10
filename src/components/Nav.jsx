@@ -28,7 +28,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="mt-2 sm:mt-6 xl:mt-10 2xl:mt-12 flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 w-[90%] z-50">
+      <nav className="animate-slideDownNav delay-1000 mt-2 sm:mt-6 xl:mt-10 2xl:mt-12 flex items-center justify-between fixed top-2 left-1/2 -translate-x-1/2 w-[90%] z-50">
         <Link to="/">
           <img src={Logo} alt="Recycle logo" className="w-12 md:w-16" />
         </Link>
