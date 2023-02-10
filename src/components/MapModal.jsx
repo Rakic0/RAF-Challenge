@@ -40,7 +40,7 @@ const MapModal = ({ ecoData, setEcoData }) => {
           disableDotsControls
           infinite
           disableButtonsControls
-          autoPlayInterval={5000}
+          autoPlayInterval={2000}
           mouseTracking
         >
           {ecoData?.img.map((item) => (
@@ -52,7 +52,7 @@ const MapModal = ({ ecoData, setEcoData }) => {
               alt={item.title}
               key={item._key}
               onDragStart={handleDragStart}
-              className="h-96 w-full mx-auto object-cover"
+              className="h-96 w-full mx-auto object-cover cursor-grab"
             />
           ))}
         </AliceCarousel>
