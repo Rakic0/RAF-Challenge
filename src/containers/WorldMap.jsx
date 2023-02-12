@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import Map from "../components/Map";
 import MapModal from "../components/MapModal";
-import gsap from "gsap";
-import Transition from "../components/Transition";
 
 const WorldMap = () => {
   const [ecoData, setEcoData] = useState(null);
-  const home = gsap.timeline();
 
   useEffect(() => {
     document.title = "EcoSoft | Mapa";
@@ -14,13 +11,11 @@ const WorldMap = () => {
 
   return (
     <>
-      <Transition timeline={home} />
-
       <div style={{ width: "100%", height: "100vh" }}>
         <Map setEcoData={setEcoData} />
         <MapModal ecoData={ecoData} setEcoData={setEcoData} />
 
-        <div className="p-2 bg-white bg-opacity-25 absolute bottom-14 left-16 rounded-xl flex flex-col gap-2">
+        <div className="p-2 bg-white bg-opacity-25 absolute bottom-4 left-4 md:left-8 md:bottom-8 lg:left-12 lg:bottom-12 2xl:left-16 2xl:bottom-14 rounded-2xl  gap-2 grid grid-cols-2">
           {/* Forest */}
           <figure className="flex items-center w-full">
             <div className="w-6">

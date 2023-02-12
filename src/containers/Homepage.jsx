@@ -19,7 +19,6 @@ import Modal from "../components/Modal";
 import Cards from "../components/Cards";
 import CardSwiper from "../components/CardSwiper";
 import Article from "../components/Article";
-import Transition from "../components/Transition";
 
 // IMGs
 import Paper from "../assets/paper/paper_1.png";
@@ -41,8 +40,6 @@ import { useInView } from "react-intersection-observer";
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 const Homepage = () => {
-  const home = gsap.timeline();
-
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
       map[image] = false;
@@ -216,8 +213,6 @@ const Homepage = () => {
 
   return (
     <>
-      <Transition timeline={home} />
-
       <div className="bg-[#fdd85f] overflow-hidden p-2">
         <div className="planet-header h-32 fixed bottom-16 left-24 z-50">
           <div className="z-50 w-32 h-32 cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
