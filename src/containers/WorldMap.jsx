@@ -6,7 +6,7 @@ const WorldMap = () => {
   const [ecoData, setEcoData] = useState(null);
 
   useEffect(() => {
-    document.title = "EcoSoft | Mapa";
+    document.title = "Eco-Encyclo";
   }, []);
 
   return (

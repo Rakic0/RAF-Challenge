@@ -36,6 +36,7 @@ import { CiBag1 } from "react-icons/ci";
 import { BsArrowUpRightCircle, BsArrowDownRightCircle } from "react-icons/bs";
 import RecycleBin from "../assets/recycle-bin.png";
 import { useInView } from "react-intersection-observer";
+import { BiWorld } from "react-icons/bi";
 
 const images = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -610,7 +611,20 @@ const Homepage = () => {
             </div>
           </section>
 
-          <section className="lg:hidden w-full h-80 bg-white testsec"></section>
+          <section className="lg:hidden w-full h-80 bg-white testsec p-4">
+            <SmallHeading className="text-center text-white">
+              Eco-Encyclo: Vaš vodič kroz svetske ekosisteme na jednom mestu
+            </SmallHeading>
+
+            <div className="flex items-center justify-center mt-12">
+              <Link to="/world-map">
+                <Button>
+                  <BiWorld className="text-5xl" />
+                  <span className="font-bold text-xl">Eco-Encyclo</span>
+                </Button>
+              </Link>
+            </div>
+          </section>
         </main>
       </div>
     </>
