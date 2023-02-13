@@ -14,7 +14,6 @@
 
 ## Sadržaj
 
-[Sadržaj](#sadržaj)  
 [Osnovne informacije](#osnovne-informacije)  
 [Ecosoft | Vodič](#ecosoft--vodič)  
 [Eco-Encyclo | Vodič](#eco-encyclo--vodič)  
