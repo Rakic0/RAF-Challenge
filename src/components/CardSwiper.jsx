@@ -47,7 +47,7 @@ const CardSwiper = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <div className="h-[115vmin] sm:h-[90vmin] md:h-[70vmin] lg:h-[60vmin]">
         <Cards />
       </div>
@@ -67,6 +67,10 @@ const CardSwiper = () => {
           <BsChevronRight className="text-2xl sm:text-3xl 2xl:text-4xl text-white group-hover:text-[#a5c33a]" />
         </button>
       </div>
+
+      <span className="text-xs absolute top-[85%] md:top-[88%] 2xl:top-[85%] left-1/2 -translate-x-1/2">
+        Stavite kursor na karticu
+      </span>
     </div>
   );
 };

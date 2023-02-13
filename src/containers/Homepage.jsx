@@ -173,8 +173,10 @@ const Homepage = () => {
       ".header-quote",
       {
         x: "100%",
+        opacity: 0,
       },
       {
+        opacity: 1,
         x: 0,
         duration: 0.7,
         delay: 1.2,
@@ -214,7 +216,7 @@ const Homepage = () => {
 
   return (
     <>
-      <div className="bg-[#fdd85f] overflow-hidden p-2">
+      <div className="bg-[#fdd85f] overflow-hidden p-2" id="uvod">
         <div className="planet-header h-32 fixed bottom-16 left-24 z-50">
           <div className="z-50 w-32 h-32 cursor-pointer planet hidden lg:block lg:left-16 xl:left-24">
             <Link to="/world-map">

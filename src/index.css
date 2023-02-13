@@ -433,3 +433,21 @@ html {
   background-position: center;
   background-size: cover;
 }
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  @apply bg-white text-3xl rounded-full text-black absolute transition-all;
+}
+
+.alice-carousel__next-btn-item {
+  @apply top-1/2 -translate-y-1/2 right-4;
+}
+
+.alice-carousel__prev-btn-item {
+  @apply top-1/2 -translate-y-1/2 left-4;
+}
+
+.alice-carousel__prev-btn-item:hover,
+.alice-carousel__next-btn-item:hover {
+  @apply text-black bg-opacity-70;
+}

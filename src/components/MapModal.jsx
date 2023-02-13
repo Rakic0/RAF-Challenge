@@ -30,7 +30,7 @@ const MapModal = ({ ecoData, setEcoData }) => {
       } absolute top-1/2 left-1/2 transofrm -translate-x-1/2 transition-all -translate-y-1/2 bg-white w-[90vw] sm:w-[70vw] md:w-[50vw] xl:w-[45vw] 2xl:w-[40vw] h-[70vh] rounded-lg z-40 overflow-hidden`}
     >
       <RxCross2
-        className="text-3xl absolute right-3 top-3 cursor-pointer z-40"
+        className="text-4xl absolute right-3 top-3 cursor-pointer z-40 bg-white rounded-full p-1 hover:rotate-180 transition-all"
         onClick={() => setEcoData(null)}
       />
 
@@ -39,7 +39,6 @@ const MapModal = ({ ecoData, setEcoData }) => {
           autoPlay={true}
           disableDotsControls
           infinite
-          disableButtonsControls
           autoPlayInterval={2000}
           mouseTracking
         >
