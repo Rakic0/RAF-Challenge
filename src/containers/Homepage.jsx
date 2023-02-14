@@ -105,7 +105,7 @@ const Homepage = () => {
       const newVisibleImagesMap = images.reduce((map, image) => {
         map[image] = scrollTop >= image * (viewportHeight / 4);
         return map;
-      }, {});
+      }, []);
 
       setVisibleImagesMap(newVisibleImagesMap);
     };
@@ -146,7 +146,9 @@ const Homepage = () => {
         scale: 2,
       });
     }
+  }, [windowDimensions]);
 
+  useLayoutEffect(() => {
     gsap.to(gifDots.current, {
       scrollTrigger: {
         trigger: gifDots.current,
@@ -212,7 +214,7 @@ const Homepage = () => {
         delay: 3,
       }
     );
-  }, [windowDimensions]);
+  }, []);
 
   return (
     <>
