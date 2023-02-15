@@ -17,7 +17,7 @@
 [Osnovne informacije](#osnovne-informacije)  
 [Ecosoft | Vodič](#ecosoft--vodič)  
 [Eco-Encyclo | Vodič](#eco-encyclo--vodič)  
-[Tehnologije](#tehnologija)
+[Tehnologije](#tehnologije)
 
 ---
 
